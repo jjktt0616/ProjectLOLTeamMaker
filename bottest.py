@@ -1,7 +1,7 @@
 import discord, asyncio # 디스코드 모듈과, 보조 모듈인 asyncio를 불러옵니다.
 import datetime
 
-token = "Njk3NzYxOTgxMzg1NDA4NTgz.XpQk5w.mdDxFN-KJYnvNOZWfUHJ1G3JKVQ" # 아까 메모해 둔 토큰을 입력합니다
+token = "토큰" # 아까 메모해 둔 토큰을 입력합니다 직접넣어서 깃허브에올리면 토큰이 
 client = discord.Client() # discord.Client() 같은 긴 단어 대신 client를 사용하겠다는 선언입니다.
 
 
