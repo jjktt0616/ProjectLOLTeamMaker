@@ -2,7 +2,7 @@ import discord, asyncio # 디스코드 모듈과, 보조 모듈인 asyncio를 �
 import datetime
 import aliasbot
 
-token = "토큰ㅁ" # 아까 메모해 둔 토큰을 입력합니다 직접넣어서 깃허브에올리면 토큰이 
+token = "토큰" # 아까 메모해 둔 토큰을 입력합니다 직접넣어서 깃허브에올리면 토큰이
 client = discord.Client() # discord.Client() 같은 긴 단어 대신 client를 사용하겠다는 선언입니다.
 
 
@@ -60,10 +60,13 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
         timesaveswitch = "1"
         await message.channel.send(timesave)
 
+######################################################################################################################
+# 2020-04-15 정찬호 / Aliasbot 모듈화를 통한 식별자 부르기 함수 추가                                                         #
+######################################################################################################################
     if message.content == "!식별자":
-        aliasReturn = aliasbot.discriminator(client);
+        aliasReturn = aliasbot.discriminator(message)
 
-        await message.channel.send("당신의 식별자는 " + userDiscriminator + " 입니다.")
-        await message.channel.send("당신의 아이디는 " + discordUserId + " 입니다.")
+        await message.channel.send("당신의 식별자는 " + aliasReturn.userDiscriminator + " 입니다.")
+        await message.channel.send("당신의 아이디는 " + aliasReturn.discordUserId + " 입니다.")
 
 client.run(token) # 아까 넣어놓은 토큰 가져다가 봇을 실행하라는 부분입니다. 이 코드 없으면 구문이 아무리 완벽해도 실행되지 않습니다.
